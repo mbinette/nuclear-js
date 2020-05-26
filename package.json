@@ -1,10 +1,11 @@
 {
-  "name": "nuclear-js",
+  "name": "@mbinette/nuclear-js",
   "version": "1.4.0",
   "description": "Immutable, reactive Flux architecture. UI Agnostic.",
   "main": "dist/nuclear.js",
   "module": "src/main.js",
   "author": "Jordan Garcia",
+  "contributors": "Michael Binette <mbinette@oncasoft.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/optimizely/nuclear-js/issues"
