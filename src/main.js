@@ -8,8 +8,8 @@ import { isGetter } from './getter'
 import { LRUCache } from './reactor/cache'
 import createReactMixin from './create-react-mixin'
 
-export default {
-  Reactor,
+export {
+  Reactor as default,
   Store,
   Immutable,
   isKeyPath,

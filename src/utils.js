@@ -3,7 +3,7 @@
  * @param {*} val
  * @return {boolean}
  */
-exports.isString = function(val) {
+export function isString(val) {
   return typeof val === 'string' || objectToString(val) === '[object String]'
 }
 
@@ -12,30 +12,17 @@ exports.isString = function(val) {
  * @param {*} val
  * @return {boolean}
  */
-exports.isArray = Array.isArray /* istanbul ignore next */|| function(val) {
-  return objectToString(val) === '[object Array]'
+export function isArray(val) {
+  return Array.isArray || objectToString(val) === '[object Array]'
 }
 
-// taken from underscore source to account for browser discrepancy
-/* istanbul ignore if  */
-if (typeof /./ !== 'function' && typeof Int8Array !== 'object') {
-  /**
-   * Checks if the passed in value is a function
-   * @param {*} val
-   * @return {boolean}
-   */
-  exports.isFunction = function(obj) {
-    return typeof obj === 'function' || false
-  }
-} else {
-  /**
-   * Checks if the passed in value is a function
-   * @param {*} val
-   * @return {boolean}
-   */
-  exports.isFunction = function(val) {
-    return toString.call(val) === '[object Function]'
-  }
+/**
+ * Checks if the passed in value is a function
+ * @param {*} val
+ * @return {boolean}
+ */
+export function isFunction(obj) {
+  return typeof obj === 'function' || false
 }
 
 /**
@@ -43,7 +30,7 @@ if (typeof /./ !== 'function' && typeof Int8Array !== 'object') {
  * @param {*} val
  * @return {boolean}
  */
-exports.isObject = function(obj) {
+export function isObject(obj) {
   var type = typeof obj
   return type === 'function' || type === 'object' && !!obj
 }
@@ -54,7 +41,7 @@ exports.isObject = function(obj) {
  * @param {object} objects
  * @return {object}
  */
-exports.extend = function(obj) {
+export function extend(obj) {
   var length = arguments.length
 
   if (!obj || length < 2) {
@@ -80,7 +67,7 @@ exports.extend = function(obj) {
  * @param {object} obj
  * @return {object}
  */
-exports.clone = function(obj) {
+export function clone(obj) {
   if (!exports.isObject(obj)) {
     return obj
   }
@@ -97,7 +84,7 @@ exports.clone = function(obj) {
  * @param {*} context
  * @return {array|object|string}
  */
-exports.each = function(collection, iteratee, context) {
+export function each(collection, iteratee, context) {
   var length = collection ? collection.length : 0
   var i = -1
   var keys
@@ -137,7 +124,7 @@ exports.each = function(collection, iteratee, context) {
  * @param {*} partialArgs
  * @return {function}
  */
-exports.partial = function(func) {
+export function partial(func) {
   var slice = Array.prototype.slice
   var partialArgs = slice.call(arguments, 1)
 
@@ -149,7 +136,7 @@ exports.partial = function(func) {
 /**
  * Returns a factory method that allows construction with or without `new`
  */
-exports.toFactory = function(Klass) {
+export function toFactory(Klass) {
   var Factory = function(...args) {
     return new Klass(...args)
   }

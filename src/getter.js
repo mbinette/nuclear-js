@@ -102,7 +102,7 @@ function getStoreDeps(getter) {
   return storeDeps
 }
 
-export default {
+export {
   isGetter,
   getComputeFn,
   getFlattenedDeps,
