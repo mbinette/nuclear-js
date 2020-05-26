@@ -9,7 +9,7 @@ import { LRUCache } from './reactor/cache'
 import createReactMixin from './create-react-mixin'
 
 export {
-  Reactor as default,
+  Reactor,
   Store,
   Immutable,
   isKeyPath,
